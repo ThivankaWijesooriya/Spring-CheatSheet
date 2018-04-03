@@ -1,0 +1,17 @@
+            $.each(data, function(key, value) {
+                
+                /*console.log(key);*/
+                if(key=="address"){
+                    
+                    console.log(value);
+                    $.each(value, function(key2, value2){
+                        
+                        console.log(key2);
+                    });
+                    
+                }
+                
+            });
+
+
+// used to traverse through a json object hence string have to be converted to json object using parse method

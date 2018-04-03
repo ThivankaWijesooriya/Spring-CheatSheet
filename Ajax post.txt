@@ -1,0 +1,19 @@
+             $.ajax({
+                type: "POST",
+                accept: "text/html",
+                //contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                url: "${pageContext.request.contextPath}/ap/academic_partner/" + action + "",
+                data: ({
+                    "data": data,
+                    "key": modifyid
+
+                }),
+                success: function() {
+                    location.reload(true);
+                }
+
+            });
+
+
+// data = JSON.stringify(data); // convert json object to string before passing to server

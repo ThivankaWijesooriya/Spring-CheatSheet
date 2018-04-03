@@ -1,0 +1,6 @@
+Method1:-    <a  href="${pageContext.request.contextPath}/pms/dashboard">  Dashboard   </a>  // html
+
+
+Mehtod2:-    window.location.href = "<%=session.getAttribute("serverRoot")%>/ap/unit_specification22"; // Jquery
+                    
+               

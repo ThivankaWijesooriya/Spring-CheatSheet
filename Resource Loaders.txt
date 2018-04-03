@@ -1,0 +1,21 @@
+ 	<link rel="stylesheet" href="">
+    	<script></script>
+   	<img src="" alt="">
+
+************************ METHOD 1 : Servlet and JSP built in objects *****************************************
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/my-test.css">
+<script src="${pageContext.request.contextPath}/resources/js/simple-test.js">  </script>
+<img src="${pageContext.request.contextPath}/resources/images/spring-logo.png" />
+
+
+
+************************ METHOD 2 : using JSTL AND Taglib *****************************************
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  // Define Above Doctype html
+
+
+<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+<script src="<c:url value="/resources/js/main.js" />">  </script>
+<img src="<c:url value="/resources/images/spring-logo.png" />" />
+

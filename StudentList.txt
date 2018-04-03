@@ -1,0 +1,138 @@
+package ArrayList;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import ArrayList.Course.Student;
+
+ class Course12 {
+
+	   private String courseName;
+	   private int noOfStudents;
+	   private ArrayList<Student> studentList;
+
+	  
+	
+	//Getters
+	   public String getCourseName(){
+	       return courseName;
+	   }
+	   public int getNoOfStudents(){
+	       return noOfStudents;
+	   }
+	   
+
+	   //Setters
+	   public void setCourseName(String courseName){
+	       this.courseName = courseName;
+	   }
+	   public void setNoOfStudents(int noOfStudents){
+	       this.noOfStudents = noOfStudents;
+	   }
+	  
+	  
+
+
+   public Course12(int noOfStudents, String courseName){
+
+	       this.studentList = new ArrayList<Student>();
+	       this.courseName = courseName;
+	       
+	   }
+	   
+
+	   public boolean addStudent(Student student){
+		   
+		   
+	       if (student==null || studentList.contains(student)) {
+	           return false;
+	       }
+	       else{
+	    	   
+	    	   studentList.add(student);
+	    	   return true;
+	       }
+	       
+	   }
+
+	   public void printStudents(){
+	   /*for(Student s : studentList)
+	           System.out.println(s.getName() + ", with " + s.getAge() + " year(s)"); */
+		   
+		   Iterator itr = studentList.iterator();
+			  
+		   while(itr.hasNext()) {
+			   
+			   Student student = (Student)itr.next();
+			   System.out.println(student.getName() + ", with " + student.getAge() + " year(s)");
+		   }
+		   
+		   
+	   }
+	   
+	   public ArrayList<Student> getStudentList() {
+			return studentList;
+		}
+	   
+	
+
+}
+
+class Student12{
+    private int number;
+    private String name;
+    private int age;
+    // Basically anything that makes sense for a student.
+
+    public Student12(int number, String name, int age){
+        this.number = number;
+        this.name = name;
+        this.age = age;
+    }
+
+   
+
+    public int getNumber(){ 
+        return number;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getAge(){
+        return age;
+    }
+}
+
+public class testclass{
+	
+	
+	public static void main(String[] args){
+	    Course12 oop = new Course12(6, "Object Oriented Programming");
+	    oop.addStudent(new Course.Student(6, "Michael Jordan", 56));
+	    oop.addStudent(new Course.Student(23, "Kyrie Irving", 24));
+	    oop.addStudent(new Course.Student(14, "Kevin Love", 27));
+	    System.out.println(oop.getCourseName() + " has the following students");
+	    oop.printStudents();
+	    
+	    System.out.println("**************************************************");
+	    
+	    
+	    ArrayList<Student> list= oop.getStudentList();
+	    Iterator itr = list.iterator();
+		  
+		   while(itr.hasNext()) {
+			   
+			   Student student = (Student)itr.next();
+			   System.out.println(student.getName() + ", with " + student.getAge() + " year(s)");
+		   }
+	    
+
+	}
+}
+
+
+
+
+
