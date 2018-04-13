@@ -1,0 +1,1 @@
+set "JAVA_OPTS=%JAVA_OPTS% -Dhttp.proxyHost=172.10.226.100 -Dhttp.proxyPort=8080 -Dhttp.proxyUser=thivz -Dhttp.proxyPassword=lak2000 -Dhttp.nonProxyHosts=localhost|127.0.0.1"

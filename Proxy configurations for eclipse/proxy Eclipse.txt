@@ -1,0 +1,1 @@
+Eclipse -> Preferences -> Java -> Network Settings -> Configure proxy to http and https ( clear SOCKS )
