@@ -1,0 +1,9 @@
+// Driver initialization
+AS400JDBCDriver driver = new com.ibm.as400.access.AS400JDBCDriver();
+DriverManager.registerDriver(driver);
+
+// JDBC Connection URL
+String url = "jdbc:as400://10.10.10.10" + ";promt=false" // disable GUI prompting by jt400 library
+
+// Get a Connection object (this is used to create statements, etc)
+Connection conn = DriverManager.getConnection(url, UserString, PassString);

@@ -1,0 +1,25 @@
+if (rs.next() == false)
+ { 
+
+System.out.println("ResultSet in empty in Java"); 
+
+
+}
+ 
+else 
+{ 
+
+do 
+
+{ 
+
+String data = rs.getString("emp_name"); 
+System.out.println(data); 
+
+}while (rs.next()); 
+
+
+ 
+
+}
+
