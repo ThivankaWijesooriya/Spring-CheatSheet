@@ -1,0 +1,11 @@
+$("#key").on("keypress input blur", function(event) {
+
+            	  var value = $(this).val();
+            	  value = value.replace(/\D+/, '');
+            	  $(this).val(value);
+
+            	});
+
+
+
+// "key" is the id for input field
