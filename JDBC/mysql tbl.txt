@@ -1,0 +1,17 @@
+use studentdb;
+
+create TABLE studenttbl(
+    
+    id int not null primary key auto_increment,
+    first_name varchar(15) DEFAULT null,
+    last_name varchar(15) DEFAULT null,
+    email varchar(20) DEFAULT null
+    
+    
+) ENGINE=INNODB;
+
+
+// To alter column for auto increment
+ALTER TABLE studenttbl MODIFY COLUMN id INT auto_increment
+
+
