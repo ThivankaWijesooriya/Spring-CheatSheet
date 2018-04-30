@@ -1,10 +1,10 @@
        Hashtable<String, String> environment = new Hashtable<String, String>();
 
         environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-        environment.put(Context.PROVIDER_URL, "ldap://192.168.0.162:389");
+        environment.put(Context.PROVIDER_URL, "ldap://192.165.0.166:389"); // 389 default ldap port
         environment.put(Context.SECURITY_AUTHENTICATION, "simple");
-        environment.put(Context.SECURITY_PRINCIPAL, "LK06789");
-        environment.put(Context.SECURITY_CREDENTIALS, "combank@123");
+        environment.put(Context.SECURITY_PRINCIPAL, "LK06789");        // Username
+        environment.put(Context.SECURITY_CREDENTIALS, "abc@123");   // Password
 
         try 
         {
