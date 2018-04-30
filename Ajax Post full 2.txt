@@ -1,0 +1,25 @@
+				$.ajax({
+					type : "POST",
+					url : "${pageContext.request.contextPath}/Post",
+					beforeSend: function(){
+					    // Show image container
+					    
+					    $(".container").hide();
+					    $("#loader").show();
+					},
+					success : function() {
+
+						
+						$( "#target" ).removeClass( "hidden" );
+					},
+					complete:function(){
+					    // Hide image container
+					    $("#loader").hide();
+					    $(".container").show();
+					},
+					error: function(){
+
+		                        //your code here
+
+		                        }
+				});
