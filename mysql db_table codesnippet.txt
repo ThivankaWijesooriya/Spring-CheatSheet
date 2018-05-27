@@ -1,0 +1,15 @@
+CREATE TABLE Employee(
+    
+  employee_id int not null AUTO_INCREMENT PRIMARY KEY,
+  employee_name varchar(60) not null,
+  date_of_joining datetime DEFAULT null,
+  salary double DEFAULT null,
+  bonus decimal(10,0) default null
+    
+    
+)ENGINE=INNODB;
+
+
+select * FROM studentdb.employee
+
+or select * FROM employee

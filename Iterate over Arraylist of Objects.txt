@@ -1,0 +1,23 @@
+<<<<<<<<<<<<<<<<<<<<<<<<  Method 1 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>          
+      
+              List<Employee> list =emp.getAllEmployee();
+		 for(Employee employeelsit : list) {
+
+			  System.out.println(employeelsit.getEmployeename());     
+		}
+
+
+               getEmployeename() <<== respective getter method of Employee class
+
+
+              
+<<<<<<<<<<<<<<<<<<<<<<<<  Method 2 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+              ArrayList<Student> list= oop.getStudentList();
+	      Iterator itr = list.iterator();
+		  
+		   while(itr.hasNext()) {
+			   
+			   Student student = (Student)itr.next();
+			   System.out.println(student.getName() + ", with " + student.getAge() + " year(s)");
+		   }
