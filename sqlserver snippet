@@ -1,0 +1,96 @@
+use Onezero
+
+CREATE TABLE tblRefAddress(
+
+strEmpno varchar (30) not null primary key,
+strEmpAddress varchar (80) not null,
+intStatus int not null,
+strRemarks varchar (250) default null,
+intEnteredBy int not null,
+dtmEnteredDate datetime not null,
+intUpdatedBy int default null,
+dtmUpdatedDate datetime default null,
+intDeletedBy int default null,
+dtmDeletedDate int default null 
+
+
+);
+
+
+CREATE TABLE tblRefReportingOfficer(
+
+strOfficerId varchar (30) not null primary key,
+strOfficerName varchar (100) not null,
+intStatus int not null,
+strRemarks varchar (250) default null,
+intEnteredBy int not null,
+dtmEnteredDate datetime not null,
+intUpdatedBy int default null,
+dtmUpdatedDate datetime default null,
+intDeletedBy int default null,
+dtmDeletedDate int default null 
+
+);
+
+
+CREATE TABLE tblRefDepartment(
+
+strDeptID varchar (30) not null primary key,
+strDeptName varchar (50) not null,
+intStatus int not null,
+strRemarks varchar (250) default null,
+intEnteredBy int not null,
+dtmEnteredDate datetime not null,
+intUpdatedBy int default null,
+dtmUpdatedDate datetime default null,
+intDeletedBy int default null,
+dtmDeletedDate int default null 
+
+);
+
+
+CREATE TABLE tblRefDesignation(
+
+strDesigID varchar (30) not null primary key,
+strDesigName varchar (60) not null ,
+intStatus int not null,
+strRemarks varchar (250) default null,
+intEnteredBy int not null,
+dtmEnteredDate datetime not null,
+intUpdatedBy int default null,
+dtmUpdatedDate datetime default null,
+intDeletedBy int default null,
+dtmDeletedDate int default null 
+
+
+);
+
+
+CREATE TABLE tblMasEmployee(
+
+strEPFno varchar (30) not null,
+strEmpno varchar (30) references tblRefAddress(strEmpno) not null primary key,
+strEmpInitials varchar (20) not null,
+strEmpFirstName varchar (30) not null,
+strEmpLastName varchar (30) not null,
+strEmpFullName varchar (100) not null,
+strEmpMobile varchar(50) default null,
+strEmpTP varchar(50) default null,
+strEmail varchar (50) not null,
+intStatus int not null,
+strRemarks varchar (250) default null,
+intEnteredBy int not null,
+dtmEnteredDate datetime not null,
+intUpdatedBy int default null,
+dtmUpdatedDate datetime default null,
+intDeletedBy int default null,
+dtmDeletedDate int default null, 
+strOfficerId varchar (30) not null REFERENCES tblRefReportingOfficer(strOfficerId),
+strAltOfficerId varchar (30) default null REFERENCES tblRefReportingOfficer(strOfficerId),
+strDeptID varchar (30) not null REFERENCES tblRefDepartment(strDeptID),
+strDesigID varchar (30) not null REFERENCES tblRefDesignation(strDesigID)
+
+);
+
+
+
