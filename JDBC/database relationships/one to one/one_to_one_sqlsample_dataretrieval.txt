@@ -1,0 +1,1 @@
+SELECT E.username , EC.cardnumber from employee as E JOIN employeecard as EC ON E.id = EC.Employeeid;

@@ -1,0 +1,33 @@
+*************** CREATE EMPLOYEE QUERY ***********************************************
+
+CREATE TABLE Employee(
+    
+ id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ username varchar (250) NOT NULL,
+ password varchar (250) NOT NULL,
+ active bit DEFAULT NULL   
+    
+) ENGINE = INNODB DEFAULT CHARSET = latin1;
+
+
+
+
+INSERT INTO Employee (username,password,active) VALUES ('Thivz','root', 1);
+INSERT INTO Employee (username,password,active) VALUES ('Lahiru','java', 0);
+
+
+*************** CREATE EMPLOYEE CARD ***********************************************
+
+CREATE TABLE EmployeeCard(
+ 
+ Employeeid int(11) NOT NULL PRIMARY KEY,
+ cardnumber varchar(250) NOT NULL,
+ FOREIGN KEY (Employeeid) REFERENCES Employee(id)
+    
+) ENGINE = INNODB DEFAULT CHARSET = latin1;
+
+
+
+
+INSERT INTO EmployeeCard (Employeeid,cardnumber) VALUES (1 ,'Echo11');
+INSERT INTO EmployeeCard (Employeeid,cardnumber) VALUES (2 ,'Echo12');
