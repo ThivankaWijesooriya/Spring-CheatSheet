@@ -1,0 +1,32 @@
+Example
+
+CREATE TABLE EmployeeMasterNew(
+ ID INT NOT NULL,
+ EmployeeNo VARCHAR(25),
+ EmployeeName VARCHAR(50)
+);
+
+Stored procedure that helps us to insert a record in a table:
+
+CREATE PROCEDURE InsertEmployee
+ @Name VARCHAR(MAX)
+AS
+BEGIN
+ DECLARE @NewEmpID VARCHAR(25);
+ DECLARE @PreFix VARCHAR(10) = 'SEZ';
+ DECLARE @Id INT;
+
+SELECT @Id = ISNULL(MAX(ID),0) + 1 FROM EmployeeMasterNew
+
+ SELECT @NewEmpID = @PreFix + RIGHT('0000000' + CAST(@Id AS VARCHAR(7)), 7)
+
+INSERT INTO EmployeeMasterNew VALUES (@Id,@NewEmpID,@Name)
+END
+
+In this Stored Procedure, we need to create an EmployeeNo manually and insert into the database. Here we have no control over the insert and update on this column, in other words anybody can update this column outside of the Stored Procedure.
+
+Insert some test data as in the following:
+
+EXEC InsertEmployee 'Jignesh';
+EXEC InsertEmployee 'Tejas';
+EXEC InsertEmployee 'Rakesh';
