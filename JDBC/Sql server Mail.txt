@@ -1,3 +1,5 @@
+// Use ADD prefix on sp when newly creating ( change msdb.dbo.sysmail_update_account_sp to msdb.dbo.sysmail_add_account_sp )
+
 
 --To enable Database Mail
 sp_configure 'show advanced options', 1;
@@ -52,3 +54,9 @@ EXEC msdb.dbo.sp_send_dbmail
      @body = 'The database mail configuration was completed successfully.',
      @subject = 'Automated Success Message';
 GO
+
+--IF Error Occured Rollback
+EXECUTE msdb.dbo.sysmail_delete_profileaccount_sp @profile_name = 'MailTest'
+EXECUTE msdb.dbo.sysmail_delete_principalprofile_sp @profile_name = 'MailTest'
+EXECUTE msdb.dbo.sysmail_delete_account_sp @account_name = 'MailTest'
+EXECUTE msdb.dbo.sysmail_delete_profile_sp @profile_name = 'MailTest'
