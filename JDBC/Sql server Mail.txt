@@ -1,0 +1,54 @@
+
+--To enable Database Mail
+sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+ 
+sp_configure 'Database Mail XPs', 1;
+GO
+RECONFIGURE
+GO
+
+
+-- Create a Database Mail profile  
+EXECUTE msdb.dbo.sysmail_update_profile_sp  
+    @profile_name = 'MailTest',  
+    @description = 'Profile used for sending outgoing notifications using Gmail.' ;  
+GO
+
+-- Grant access to the profile to the DBMailUsers role  
+EXECUTE msdb.dbo.sysmail_update_principalprofile_sp  
+    @profile_name = 'MailTest',  
+    @principal_name = 'public',  
+    @is_default = 1 ;
+GO
+
+
+-- Create a Database Mail account  
+EXECUTE msdb.dbo.sysmail_update_account_sp  
+    @account_name = 'MailTest',  
+    @description = 'Mail account for sending outgoing notifications.',  
+    @email_address = 'thivankawijesooriya@gmail.com',  
+    @display_name = 'System Alerts',  
+    @mailserver_name = 'smtp.gmail.com',
+    @port = 587,
+    @enable_ssl = 1 ,
+    @username = 'thivankawijesooriya@gmail.com',
+    @password = 'REDarmyfaction94' ;  
+GO
+
+-- Add the account to the profile  
+EXECUTE msdb.dbo.sysmail_update_profileaccount_sp  
+    @profile_name = 'MailTest',  
+    @account_name = 'MailTest',  
+    @sequence_number = 1 ;  
+GO
+
+--Send Email
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name = 'MailTest',
+     @recipients = 'thivankaw@onezero.lk',
+     @body = 'The database mail configuration was completed successfully.',
+     @subject = 'Automated Success Message';
+GO
