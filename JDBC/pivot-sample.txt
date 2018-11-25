@@ -1,0 +1,21 @@
+use PettyCashDB;
+
+select strCatName,[Software],[Support Service]
+from
+(select A.decTransAmount as Total,Dept.strDeptName as DeptName,CAT.strCatName from TrnTransactionDetails as A
+inner join tblTrnIouVoucher as B on A.strIouNo = B.strIouNo
+inner join tblMasEmployee as EMP on B.strUserCode = EMP.strUserCode
+inner join tblRefDepartment as Dept on EMP.strDeptCode = Dept.strDeptCode
+inner join tblRefCategory as CAT on B.strCatCode = CAT.strCatCode
+where A.strIouNo is not null ) as PivotData
+
+Pivot
+(
+
+ sum(Total) FOR DeptName IN ([Software],[Support Service]) 
+  
+) as Pivoting
+
+
+
+
